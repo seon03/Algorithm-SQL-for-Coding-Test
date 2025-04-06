@@ -4,8 +4,15 @@ N = int(input())
 M = int(input())
 S = input()
 PN = 'IO'*N + 'I' #len(PN) = 2N+1
-cnt = 0
-for i in range(M-2*N):
-  if S[i:i+len(PN)] == PN:
-    cnt +=1
-print(cnt)
+cnt, i, answer = 0, 0, 0
+while i < (M-1):
+  if S[i:i+3] == 'IOI':
+      i += 2
+      cnt += 1
+      if cnt == N:
+        answer += 1
+        cnt -= 1
+  else:
+    i += 1
+    cnt = 0  
+print(answer)
