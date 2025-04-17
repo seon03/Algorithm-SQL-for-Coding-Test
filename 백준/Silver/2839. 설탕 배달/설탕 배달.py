@@ -1,12 +1,22 @@
-N = int(input())
-count = 0
-while N >= 0:
-  if N % 5 == 0:
-    count += N//5
-    print(count)
-    break
-  else:
-    N -= 3
-    count += 1 
-if N < 0:
-  print(-1)
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+
+if n % 5 == 0:
+  print(n // 5)
+else:
+  p = 0
+  while n > 0:
+    n -= 3
+    p += 1
+    if n % 5 == 0:
+      p += n //5
+      print(p)
+      break
+    elif n == 1 or n == 2:
+      print(-1)
+      break
+    elif n == 0:
+      print(p)
+      break
